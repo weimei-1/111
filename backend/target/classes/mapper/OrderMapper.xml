@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.supermarket.mapper.OrderMapper">
+
+    <!-- 多条件查询订单 -->
+    <select id="selectByConditions" resultType="com.supermarket.entity.Order">
+        SELECT DISTINCT o.* FROM orders o
+        <if test="productName != null and productName != ''">
+            LEFT JOIN order_item oi ON o.id = oi.order_id
+        </if>
+        <where>
+            <if test="startDate != null">
+                AND o.create_time &gt;= #{startDate}
+            </if>
+            <if test="endDate != null">
+                AND o.create_time &lt;= #{endDate}
+            </if>
+            <if test="cashierId != null">
+                AND o.cashier_id = #{cashierId}
+            </if>
+            <if test="status != null and status != ''">
+                AND o.status = #{status}
+            </if>
+            <if test="productName != null and productName != ''">
+                AND oi.product_name LIKE CONCAT('%', #{productName}, '%')
+            </if>
+        </where>
+        ORDER BY o.create_time DESC
+    </select>
+
+</mapper>
