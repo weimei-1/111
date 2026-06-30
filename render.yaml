@@ -6,6 +6,7 @@ services:
     runtime: docker
     repo: https://github.com/weimei-1/supermarket-orders.git
     branch: main
+    plan: free
     dockerfilePath: ./backend/Dockerfile
     dockerContext: ./backend
     healthCheckPath: /api/auth/health
