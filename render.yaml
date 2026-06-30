@@ -12,9 +12,9 @@ services:
     healthCheckPath: /api/auth/health
     envVars:
       - key: SPRING_DATASOURCE_URL
-        value: jdbc:mysql://<数据库主机>:3306/supermarket_db?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+        value: jdbc:mysql://db4free.net:3306/supermarket_db?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
       - key: SPRING_DATASOURCE_USERNAME
-        value: <数据库用户名>
+        value: supermarket_user
       - key: SPRING_DATASOURCE_PASSWORD
         sync: false
       - key: SPRING_PROFILES_ACTIVE
