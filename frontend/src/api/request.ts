@@ -3,8 +3,9 @@ import { ElMessage } from 'element-plus'
 import type { ApiResult } from '@/types'
 
 // 创建 axios 实例
+// 开发环境通过 Vite proxy 转发，生产环境使用 VITE_API_BASE_URL
 const request = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_API_BASE_URL || '/api',
   timeout: 15000,
   headers: {
     'Content-Type': 'application/json'

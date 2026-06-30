@@ -1,0 +1,18 @@
+# ============================================
+# 生产环境配置（Render 部署使用）
+# 数据库和 JWT 由环境变量通过 Dockerfile 注入
+# 此处只配置生产环境专属行为
+# ============================================
+
+server:
+  port: 8080
+
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+
+mybatis-plus:
+  configuration:
+    # 生产环境关闭 SQL 日志
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
