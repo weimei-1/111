@@ -10,7 +10,7 @@ services:
   - type: web
     name: supermarket-api
     runtime: docker
-    repo: https://github.com/你的用户名/你的仓库名
+    repo: https://github.com/weimei-1/supermarket-orders.git
     branch: main
     dockerfilePath: ./backend/Dockerfile
     dockerContext: ./backend
@@ -33,7 +33,7 @@ services:
   # ==================== 前端静态站点 ====================
   - type: static
     name: supermarket-frontend
-    repo: https://github.com/你的用户名/你的仓库名
+    repo: https://github.com/weimei-1/supermarket-orders.git
     branch: main
     # 关键配置：告诉 Render package.json 在 frontend/ 目录下
     rootDir: frontend
